@@ -1,0 +1,95 @@
+
+
+@import url("reset.css");
+.button_example{
+
+ background-color: white;
+ font-family:"Shift",sans-serif;
+ dbackground:url(http://g02.a.alicdn.com/kf/HTB16ENqIXXXXXaUXVXXq6xXFXXXp/1000-autumn-maples-font-b-fall-b-font-font-b-scenery-b-font-jigsaw-puzzle-casual.jpg); 
+ 
+
+th, td { padding:10px; }
+
+cellspacing
+table { border-collapse: separate; border-spacing: 5px; } // cellspacing="5"
+table { border-collapse: collapse; border-spacing: 10px; }   // cellspacing="0"
+
+valign
+th, td { vertical-align: right; }
+
+ align (center)
+table { margin: 0 auto; }
+.button_example:click{
+ border:blue;
+ background-color: green; 
+ 
+
+body {
+    font-family: , Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    color:black;
+    background-color:yellow;
+    background:url()
+}
+
+p {
+    font-family: "trebuchet MS",sans-serif;
+color: green;
+font-size: 50px;
+font-weight: bold;
+text-align: center;
+letter-spacing: 3.8pt;
+word-spacing: 0.6pt;
+
+}
+
+#wrapper {
+    margin: 0 auto;
+    width: 1000px;
+}
+
+#headerwrap {
+    width: 1000px;
+    float: left;
+    margin: 0 auto;
+}
+
+#header {
+    height: 75px;
+    margin: 5px;
+}
+
+#contentwrap {
+    width: 1000;
+    float: left;
+    margin: 0 auto;
+}
+
+#msgbox {
+    border-radius: 25px;
+    border: 20px solid #000000;
+    padding: 20px;
+}
+#msg {
+    border-radius: 25px;
+    border: 2px solid #000000;
+    padding: 10px;
+}
+#clientid {
+    border-radius: 25px;
+    border: 2px solid #000000;
+    padding: 10px;
+	margin-left:5px;
+}
+#content {
+    background: #FFFFFF;
+    border-radius: 10px;	
+    margin: 10px;
+}
+.h1{ 
+	background:white;
+	border-radius:50px;
+}
+
+}
+

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type=text/javascript src="reset.css"></script>
+<style>
+th, td { padding: 10px; }
+
+// cellspacing
+table { border-collapse: separate; border-spacing: 5px; } // cellspacing="5"
+table { border-collapse: collapse; border-spacing: 0; }   // cellspacing="3"
+
+// valign
+th, td { vertical-align: top; }
+
+// align (centre)
+table { margin: 0 auto; }
+</style>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<meta charset="ISO-8859-1">
+<title>Headphone interface</title>
+<script type="text/javascript">
+var xmlhttp;
+
+
+function ConvertFormToJSON(){
+	
+    var array = jQuery('form#start_chat').serializeArray();
+    var json = {};
+    
+    jQuery.each(array, function() {
+        json[this.name] = this.value || '';
+    });
+    
+    return json;
+}
+
+jQuery(document).on('ready', function() {
+
+    $("#sub1").click(function(event){
+    	event.preventDefault();
+        var json = ConvertFormToJSON();
+        //alert(JSON.stringify(json));
+        console.log(JSON.stringify(json));
+        
+        
+        xmlhttp = new XMLHttpRequest();
+	var url = "http://localhost:8080/restservice/api/factoryboot";
+	
+	
+	 xmlhttp.open("POST",url);
+
+	xmlhttp.setRequestHeader('Content-Type', 'application/json');
+
+	xmlhttp.send(JSON.stringify(json));
+	//JSON.stringiy method converts a JavaScript value to a JSON string
+	
+// Create the callback:
+
+//The readyState property holds the status of the XMLHttpRequest.
+//4: request finished and response is ready
+//200: "OK"
+	xmlhttp.onreadystatechange = function() {
+  if (xmlhttp.readyState != 4) return; // Not there yet
+  if (xmlhttp.status != 200) {
+    // Handle request failure here...
+    return;
+  }
+  // Request successful, read the response
+  var resp = xmlhttp.responseText;
+  // ... and use it as needed by your app.
+	$('#mfg').val(resp); 
+	console.log(resp);
+	//alert(resp);
+}
+        
+        });
+        
+        
+        
+    $("#save1").click(function(event){
+    	//alert('hello');
+    	event.preventDefault();
+        var json = ConvertFormToJSON();
+        console.log(JSON.stringify(json));
+        
+        
+        xmlhttp = new XMLHttpRequest();
+	var url = "http://localhost:8080/restservice/api/clientboot";
+	
+	
+	 xmlhttp.open("POST",url);
+
+	xmlhttp.setRequestHeader('Content-Type', 'application/json');
+
+	xmlhttp.send(JSON.stringify(json));
+	//JSON.stringiy method converts a JavaScript value to a JSON string
+	
+// Create the callback:
+
+//The readyState property holds the status of the XMLHttpRequest.
+//4: request finished and response is ready
+//200: "OK"
+	xmlhttp.onreadystatechange = function() {
+  if (xmlhttp.readyState != 4) return; // Not there yet
+  if (xmlhttp.status != 200) {
+    // Handle request failure here...
+    return;
+  }
+  // Request successful, read the response
+  var resp = xmlhttp.responseText;
+  // ... and use it as needed by your app.
+	$('#regserver').val(resp); 
+	console.log(resp);
+	//alert(resp);
+}
+        
+        });  
+        
+        
+        
+        
+        $("#upd").click(function(event){
+    	event.preventDefault();
+        var json = ConvertFormToJSON();
+        console.log(JSON.stringify(json));
+        
+        
+        xmlhttp = new XMLHttpRequest();
+	var url = "http://localhost:8080/restservice/api/regupdate";
+	
+	
+	 xmlhttp.open("PUT",url);
+
+	xmlhttp.setRequestHeader('Content-Type', 'application/json');
+
+	xmlhttp.send(JSON.stringify(json));
+	//JSON.stringiy method converts a JavaScript value to a JSON string
+	
+// Create the callback:
+
+//The readyState property holds the status of the XMLHttpRequest.
+//4: request finished and response is ready
+//200: "OK"
+	xmlhttp.onreadystatechange = function() {
+  if (xmlhttp.readyState != 4) return; // Not there yet
+  if (xmlhttp.status != 200) {
+    // Handle request failure here...
+    return;
+  }
+  // Request successful, read the response
+  var resp = xmlhttp.responseText;
+  // ... and use it as needed by your app.
+	$('#phone').val(resp); 
+	console.log(resp);
+	//alert(resp);
+}
+        
+        });  
+        
+        $("#reg").click(function(event){
+    	event.preventDefault();
+        var json = ConvertFormToJSON();
+        console.log(JSON.stringify(json));
+        
+        
+        xmlhttp = new XMLHttpRequest();
+	var url = "http://localhost:8080/restservice/api/regserver";
+	
+	
+	 xmlhttp.open("POST",url);
+
+	xmlhttp.setRequestHeader('Content-Type', 'application/json');
+
+	xmlhttp.send(JSON.stringify(json));
+	//JSON.stringiy method converts a JavaScript value to a JSON string
+	
+// Create the callback:
+
+//The readyState property holds the status of the XMLHttpRequest.
+//4: request finished and response is ready
+//200: "OK"
+	xmlhttp.onreadystatechange = function() {
+  if (xmlhttp.readyState != 4) return; // Not there yet
+  if (xmlhttp.status != 200) {
+    // Handle request failure here...
+    return;
+  }
+  // Request successful, read the response
+  var resp = xmlhttp.responseText;
+  // ... and use it as needed by your app.
+	$('#mfg').val(resp); 
+	console.log(resp);
+	//alert(resp);
+}
+        
+        });
+        
+        $("#upd").click(function(event){
+    	event.preventDefault();
+        var json = ConvertFormToJSON();
+        console.log(JSON.stringify(json));
+        
+        
+        xmlhttp = new XMLHttpRequest();
+	var url = "http://localhost:8080/restservice/api/regupdate";
+	
+	
+	 xmlhttp.open("PUT",url);
+
+	xmlhttp.setRequestHeader('Content-Type', 'application/json');
+
+	xmlhttp.send(JSON.stringify(json));
+	//JSON.stringiy method converts a JavaScript value to a JSON string
+	
+// Create the callback:
+
+//The readyState property holds the status of the XMLHttpRequest.
+//4: request finished and response is ready
+//200: "OK"
+	xmlhttp.onreadystatechange = function() {
+  if (xmlhttp.readyState != 4) return; // Not there yet
+  if (xmlhttp.status != 200) {
+    // Handle request failure here...
+    return;
+  }
+  // Request successful, read the response
+  var resp = xmlhttp.responseText;
+  // ... and use it as needed by your app.
+	$('#phone').val(resp); 
+	console.log(resp);
+	//alert(resp);
+}
+        
+        });  
+        
+        $("#dreg").click(function(event){
+    	event.preventDefault();
+        var json = ConvertFormToJSON();
+        console.log(JSON.stringify(json));
+        
+        
+        xmlhttp = new XMLHttpRequest();
+	var url = "http://localhost:8080/restservice/api/dreg";
+	
+	
+	 xmlhttp.open("POST",url);
+
+	xmlhttp.setRequestHeader('Content-Type', 'application/json');
+
+	xmlhttp.send(JSON.stringify(json));
+	//JSON.stringiy method converts a JavaScript value to a JSON string
+	
+// Create the callback:
+
+//The readyState property holds the status of the XMLHttpRequest.
+//4: request finished and response is ready
+//200: "OK"
+	xmlhttp.onreadystatechange = function() {
+  if (xmlhttp.readyState != 4) return; // Not there yet
+  if (xmlhttp.status != 200) {
+    // Handle request failure here...
+    return;
+  }
+  // Request successful, read the response
+  var resp = xmlhttp.responseText;
+  // ... and use it as needed by your app.
+	$('#mfg').val(resp); 
+	console.log(resp);
+	//alert(resp);
+}
+        
+        });
+        
+        
+        
+        
+        });
+        
+       
+</script>
+<link rel="stylesheet" type="text/css" href="14569.css" />
+</head>
+<body background="http://rack.2.mshcdn.com/media/ZgkyMDEzLzA2LzI1LzAxL0hlYWRwaG9uZXNTLmMwNDBiLmpwZwpwCXRodW1iCTEyMDB4NjI3IwplCWpwZw/d86a6829/c43/Headphones-Surround-Sound.jpg">
+   <body bgcolor="white">
+      <div id="wrapper">
+        <div id="headerwrap" class="button_example">
+        <div id="header" >
+            <h1>Headphones Enterprise</h1>
+        </div>
+        
+        </div>
+        <div id="contentwrap">
+        <div id="content">
+	<form id="start_chat">
+	<table id="tab1" >
+	<tr><td><label for="mfg">Brand </label></td><td><input name="mfg" id="mfg" size="30"></td></tr>
+	
+	<tr><td><label for="hwid">Serial Number </label></td><td><input name="hwid" id="hwid" size="30"></td></tr>
+	<tr><td><label for="mod">Year of Manufacture</label></td><td><input name="mod" id="mod" size="30"></td></tr>
+	<tr><td><label for="phone">Customer care</label></td><td><input name="phone" id="phone" size="30"></td></tr>
+	<tr><td><label for="regserver">Authentic Manufacture ID</label></td><td><input name="regserver" id="regserver" size="30"></td></tr>
+	</table>
+	<br>
+	<br>
+	<br></br>
+	<div id="btn1">
+	<input class="button_example" id="sub1"  type="submit" value="Read" name="Send"></div>
+	<br>
+	<br>
+	<div id="btn2">
+	<input class="button_example" id="save1"  type="submit" value="ClientUpdate" name="Save"></div>
+	<br>
+	<div id="btn3">
+	<input class="button_example" id="reg"  type="submit" value="Create" name="reg"></div>
+	<br>
+	<div id="btn4">
+	<input class="button_example" id="upd"  type="submit" value="Update " name="upd"></div>
+	<br>
+	<div id="btn5">
+	<input class="button_example" id="dreg"  type="submit" value="Delete" name="dreg"></div>
+	</form>        
+	
+        </div>
+        </div>
+        </div>
+    
+</body>
+</html>
